@@ -5,7 +5,7 @@
   if (is_category()) pageTitle = 'Category: ' + page.category;
   if (is_month()) pageTitle += ': ' + page.month + '/' + page.year;
   if (is_year()) pageTitle += ': ' + page.year;
-  pageTitle += ' [ ' + config.title + ' ]';
+  pageTitle += ' - ' + config.title;
 %>
 
 <!DOCTYPE html>
@@ -34,17 +34,7 @@
 
       <%- body %>
 
-      <nav class="main-navigation" role="navigation">
-        <ul>
-          <% Object.keys(theme.menu).forEach(function(key) { %>
-            <% if (theme.menu[key] + '/index.html' !== '/' + page.path) { %>
-              <li>
-                <a href="<%= theme.menu[key] %>"><%= key %></a>
-              </li>
-            <% } %>
-          <% }); %>
-        </ul>
-      </nav>
+      <%- partial('partials/navigation') %>
     </div>
 
     <% if (theme.scripts !== undefined && theme.scripts.length > 0) { %>

@@ -1,11 +1,11 @@
 <article class="post">
-  <header class="entry-header">
-    <h2 class="entry-title">
+  <header class="post__header">
+    <h2 class="post__title">
       <%= page.title %>
     </h2>
-    <div class="entry-meta">
+    <div class="post__meta">
       <% if (page.date) { %>
-        <span class="posted-on">
+        <span class="post__date">
           <time datetime="<%= page.date.toJSON() %>">
             <%= date(page.date) %>
           </time>

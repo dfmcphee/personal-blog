@@ -1,0 +1,33 @@
+.pagination {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.pagination__previous,
+.pagination__next {
+	padding: 1rem 0;
+	flex: 1 1 auto;
+}
+
+.pagination__next {
+	text-align: right;
+}
+
+.pagination__page-number {
+  flex: 1 1 auto;
+  text-align: center;
+	font-weight: 200;
+	font-size: 1rem;
+	color: $light-gray;
+	text-transform: uppercase;
+}
+
+.pagination__label {
+	display: block;
+	font-weight: 200;
+	font-size: 1rem;
+	color: $light-gray;
+	text-transform: uppercase;
+	margin-bottom: 0.5rem;
+}

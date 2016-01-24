@@ -1,0 +1,11 @@
+<nav class="navigation" role="navigation">
+  <ul class="navigation__list">
+    <% Object.keys(theme.menu).forEach(function(key) { %>
+      <% if (theme.menu[key] + '/index.html' !== '/' + page.path) { %>
+        <li class="navigation__item">
+          <a class="navigation__link" href="<%= theme.menu[key] %>"><%= key %></a>
+        </li>
+      <% } %>
+    <% }); %>
+  </ul>
+</nav>

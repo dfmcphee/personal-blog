@@ -1,28 +1,26 @@
-<nav class="navigation post-navigation" role="navigation">
-	<h2 class="screen-reader-text">Post navigation</h2>
-	<div class="nav-links">
-    <div class="nav-previous">
-      <% if (page.prev_link) { %>
-        <a href="<%= url_for(page.prev_link) %>" rel="prev">Previous</a>
-      <% } else if (page.prev && page.prev.path) { %>
-        <p class="nav-label">Previous</p>
-        <a href="<%= url_for(page.prev.path) %>" rel="prev"><%= page.prev.title %></a>
-      <% } %>
-    </div>
-
-    <% if (typeof page.current === 'number' && typeof page.total === 'number' && page.total !== 1) { %>
-      <div class="nav-page-number">
-        Page <%=page.current%> of <%=page.total%>
-      </div>
+<nav class="pagination" role="navigation">
+	<h2 class="visually-hidden">Post navigation</h2>
+  <span class="pagination__previous">
+    <% if (page.prev_link) { %>
+      <a href="<%= url_for(page.prev_link) %>" rel="prev">Previous</a>
+    <% } else if (page.prev && page.prev.path) { %>
+      <p class="pagination__label">Previous</p>
+      <a href="<%= url_for(page.prev.path) %>" rel="prev"><%= page.prev.title %></a>
     <% } %>
+  </span>
 
-    <div class="nav-next">
-      <% if (page.next_link) { %>
-        <a href="<%= url_for(page.next_link) %>" rel="next">Next</a>
-      <% } else if (page.next && page.next.path) { %>
-        <p class="nav-label">Next</p>
-        <a href="<%= url_for(page.next.path) %>" rel="next"><%= page.next.title %></a>
-      <% } %>
-    </div>
-  </div>
+  <% if (typeof page.current === 'number' && typeof page.total === 'number' && page.total !== 1) { %>
+    <span class="pagination__page-number">
+      Page <%=page.current%> of <%=page.total%>
+    </span>
+  <% } %>
+
+  <span class="pagination__next">
+    <% if (page.next_link) { %>
+      <a href="<%= url_for(page.next_link) %>" rel="next">Next</a>
+    <% } else if (page.next && page.next.path) { %>
+      <p class="pagination__label">Next</p>
+      <a href="<%= url_for(page.next.path) %>" rel="next"><%= page.next.title %></a>
+    <% } %>
+  </span>
 </nav>
