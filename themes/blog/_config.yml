@@ -1,0 +1,18 @@
+# html lang
+language: en
+
+# main menu navigation
+menu:
+  'What exactly is a Dom, anyway?': /about
+
+# Miscelaneous
+favicon: /favicon.ico
+
+# stylesheets loaded in the <head>
+stylesheets:
+- /css/blog.css
+
+# scripts loaded in the end of the body
+scripts:
+- /js/blog.js
+- /js/prism.js

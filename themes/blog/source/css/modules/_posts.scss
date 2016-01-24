@@ -1,0 +1,114 @@
+/*--------------------------------------------------------------
+## Posts and pages
+--------------------------------------------------------------*/
+.sticky {
+	display: block;
+}
+
+.entry-header {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.entry-title {
+	font-size: 1.8rem;
+	flex: 1 1 auto;
+	margin: 0 0;
+}
+
+.entry-meta {
+	flex: 0 0 auto;
+	margin: 1rem 0;
+	font-weight: 100;
+}
+
+.posted-on {
+	color: $light-gray;
+	margin-bottom: 1rem;
+}
+
+.hentry {
+	margin: 0 0 1.5rem;
+}
+
+.byline,
+.updated:not(.published) {
+	display: none;
+}
+
+.single .byline,
+.group-blog .byline {
+	display: inline;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 0;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5rem;
+}
+
+.edit-link {
+	width: 100%;
+	display: block;
+	margin: 1rem 0;
+	font-size: 1.2rem;
+}
+
+.tags-links {
+	display: flex;
+	margin-bottom: 1rem;
+
+	a {
+		font-size: 0.9rem;
+		text-transform: uppercase;
+		letter-spacing: 0.06rem;
+		padding: 0.3rem 0.9rem;
+		background: $light-gray;
+		color: $white;
+		border-radius: 0.3rem;
+		margin-right: 1rem;
+		flex: 0 0 auto;
+	}
+}
+
+.post-navigation {
+	.nav-links {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+	}
+}
+
+.nav-previous,
+.nav-next {
+	padding: 1rem 0;
+	flex: 1 1 auto;
+}
+
+.nav-page-number {
+  flex: 1 1 auto;
+  text-align: center;
+	font-weight: 200;
+	font-size: 1rem;
+	color: $light-gray;
+	text-transform: uppercase;
+}
+
+.nav-label {
+	display: block;
+	font-weight: 200;
+	font-size: 1rem;
+	color: $light-gray;
+	text-transform: uppercase;
+	margin-bottom: 0.5rem;
+}
+
+.nav-next {
+	text-align: right;
+}

@@ -1,0 +1,19 @@
+<article class="post">
+  <header class="entry-header">
+    <h2 class="entry-title">
+      <%= page.title %>
+    </h2>
+    <div class="entry-meta">
+      <% if (page.date) { %>
+        <span class="posted-on">
+          <time datetime="<%= page.date.toJSON() %>">
+            <%= date(page.date) %>
+          </time>
+        </span>
+      <% } %>
+    </div>
+  </header>
+  <%- page.content %>
+</article>
+
+<%-partial('partials/pagination')%>
