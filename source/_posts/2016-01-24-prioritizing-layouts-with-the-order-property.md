@@ -5,9 +5,10 @@ tags:
   - css
   - layout
   - flexbox
+  - order
 ---
 
-Building off my previous post, where I wrote about building [responsive layouts with flexbox](/2016/01/responsive-layouts-with-flexbox/), you can take it one step further and use the [order](https://developer.mozilla.org/en-US/docs/Web/CSS/order) property to help prioritize those layouts.
+In my last post I wrote about building [responsive layouts with flexbox](/2016/01/responsive-layouts-with-flexbox/), but we can take it one step further and use the [order](https://developer.mozilla.org/en-US/docs/Web/CSS/order) property to help prioritize those layouts.
 
 Let's pretend we have a fairly typical two column layout with a sidebar on the left, and a section for the page content on the right.
 
@@ -15,14 +16,12 @@ We start with some simple markup.
 
 ```language-markup
 <div class="layout">
-  <aside class="layout__sidebar">
-  </aside>
-  <main class="layout__main">
-  </main>
+  <aside class="layout__sidebar"></aside>
+  <main class="layout__main"></main>
 </div>
 ```
 
-We then add the following CSS to get a working responsive layout.
+Then we add the following CSS to get a working responsive layout.
 
 ```language-css
 .layout {
@@ -39,28 +38,26 @@ We then add the following CSS to get a working responsive layout.
 }
 ```
 
-We set the main column to `flex: 20 1 600px` so that it grows 20 times more than the sidebar and a flex-basis of `600px` so that it will wrap when it shrinks below that width.
+We set the main column to `flex: 20 1 600px`. That is shorthand for `flex-grow: 20`, `flex-shrink: 1`, and `flex-basis: 600px`. The `flex-grow` will make the main column grows 20 times more than the sidebar, which causes the sidebar to almost stay the same size. The flex-basis of `600px` is so that it will wrap when it shrinks below that width.
 
 Here is an example [codepen](http://codepen.io/dfmcphee/pen/vLWPYb?editors=1100). Try resizing your browser and notice how the sidebar goes above the main content on smaller screens. This may be fine for some designs, but let's pretend the sidebar content isn't that important and we don't want it to be the highest priority on smaller screens.
 
 This is where we can allow the `order` property to work its magic.
 
-First, lets rearrange that markup we had created to look like this.
+First, let's rearrange that markup we had created to look like this.
 
 ```language-markup
 <div class="layout">
-  <main class="layout__main">
-  </main>
-  <aside class="layout__sidebar">
-  </aside>
+  <main class="layout__main"></main>
+  <aside class="layout__sidebar"></aside>
 </div>
 ```
 
 We change the order in the DOM so that by default the sidebar will come after the main content. We can then use the `order` property to change the visual order on larger screens.
 
-We create a breakpoint at the width where our layout will wrap. This will be the sum of the sidebar flex-basis (`200px`), and the main content flex-basis (`600px`). This is even easier if we are using a preprocessing language like LESS or Sass because we can create variables for these values and then add them automatically for the breakpoint.
+Then we create a breakpoint at the width where our layout will wrap. This will be the sum of the sidebar flex-basis (`200px`), and the main content flex-basis (`600px`). This is even easier if we are using a preprocessing language like LESS or Sass because we can create variables for these values and then add them automatically for the breakpoint.
 
-We then change the order of both the sidebar and main column using the `order` property.
+Finally, we change the order of both the sidebar and main column using the `order` property.
 
 ```language-css
 @media (min-width: 800px) {
