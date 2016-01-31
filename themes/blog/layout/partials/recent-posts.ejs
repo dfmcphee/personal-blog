@@ -1,24 +1,5 @@
 <% if (site.posts.length > 0) { %>
   <% site.posts.sort('date', -1).limit(10).each(function(post) { %>
-    <article class="post">
-      <header class="post__header">
-        <h2 class="post__title">
-          <a href="<%= config.root + post.path %>"><%= post.title %></a>
-        </h2>
-        <div class="post__meta">
-          <% if (post.date) { %>
-            <span class="post__date">
-              <time datetime="<%= post.date.toJSON() %>">
-                <%=date(post.date)%>
-              </time>
-            </span>
-          <% } %>
-        </div>
-      </header>
-
-      <div class="post__content">
-        <%- post.content %>
-      </div>
-    </article>
+    <%- partial('partials/post', { post: post }) %>
   <% }); %>
 <% } %>

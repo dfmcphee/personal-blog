@@ -1,0 +1,31 @@
+.tag-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.tag-list-item {
+  flex: 0 0 auto;
+  margin-right: $default-spacing;
+}
+
+.tag-list-link {
+  color: $white;
+  background: $light-gray;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 1rem;
+  padding: 5px 10px;
+  border-radius: 4px;
+
+  &:visited {
+    color: $white;
+  }
+
+  &:hover,
+  &:active {
+    color: $white;
+    background: darken($light-gray, 10%);
+  }
+}

@@ -9,12 +9,6 @@
     <% } %>
   </span>
 
-  <% if (typeof page.current === 'number' && typeof page.total === 'number' && page.total !== 1) { %>
-    <span class="pagination__page-number">
-      Page <%=page.current%> of <%=page.total%>
-    </span>
-  <% } %>
-
   <span class="pagination__next">
     <% if (page.next_link) { %>
       <a href="<%= url_for(page.next_link) %>" rel="next">Next</a>
@@ -23,4 +17,10 @@
       <a href="<%= url_for(page.next.path) %>" rel="next"><%= page.next.title %></a>
     <% } %>
   </span>
+
+	<% if (typeof page.current === 'number' && typeof page.total === 'number' && page.total !== 1) { %>
+		<div class="pagination__page-number">
+			Page <%=page.current%> of <%=page.total%>
+		</div>
+	<% } %>
 </nav>

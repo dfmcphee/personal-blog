@@ -2,4 +2,34 @@
   margin: 0 auto;
   max-width: $default-max-width;
   padding: $default-spacing;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.header__branding {
+  flex: 1 1 auto;
+}
+
+.header__navigation {
+  flex: 0 0 auto;
+}
+
+.site-title {
+  font-size: 2rem;
+  font-weight: 300;
+  margin: 0;
+}
+
+.site-link {
+  color: $black;
+
+  &:visited {
+    color: $black;
+  }
 }

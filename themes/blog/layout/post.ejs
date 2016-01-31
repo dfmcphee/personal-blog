@@ -14,6 +14,8 @@
     </div>
   </header>
   <%- page.content %>
+
+  <%- partial('partials/tags', { tags: page.tags} ) %>
 </article>
 
-<%-partial('partials/pagination')%>
+<%- partial('partials/pagination') %>

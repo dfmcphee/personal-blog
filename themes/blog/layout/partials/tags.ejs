@@ -1,0 +1,8 @@
+<% if (tags && tags.length) { %>
+  <div class="post__tags">
+    <%- list_tags(tags, {
+      show_count: false,
+      class: 'tag'
+    }) %>
+  </div>
+<% } %>

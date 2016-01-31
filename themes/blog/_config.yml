@@ -3,7 +3,8 @@ language: en
 
 # main menu navigation
 menu:
-  'What exactly is a Dom, anyway?': /about
+  'About': /about
+  'Archives': /archives
 
 # Miscelaneous
 favicon: /favicon.ico

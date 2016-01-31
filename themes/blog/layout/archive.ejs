@@ -1,4 +1,3 @@
-
 <%
 var categoriesList = list_categories({ show_count: false }),
   tagsList = list_tags({ show_count: false }),
@@ -7,7 +6,6 @@ var categoriesList = list_categories({ show_count: false }),
 
 <% if (!is_year()) { %>
   <div id="archive">
-
     <h1>Archives</h1>
 
     <% if (theme.atom) { %>
@@ -18,18 +16,16 @@ var categoriesList = list_categories({ show_count: false }),
       <br>
     <% } %>
 
-    <aside>
-      <h2>Categories</h2>
-      <% if (categoriesList) { %>
+    <% if (categoriesList) { %>
+      <aside>
+        <h2>Categories</h2>
         <%-categoriesList%>
-      <% } else { %>
-        <p>None.</p>
-      <% } %>
-    </aside>
-    <br>
+      </aside>
+      <br>
+    <% } %>
 
     <aside>
-      <h2>Tags</h2>
+      <h2>By tag</h2>
       <% if (tagsList) { %>
         <%-tagsList%>
       <% } else { %>
@@ -39,9 +35,9 @@ var categoriesList = list_categories({ show_count: false }),
     <br>
 
     <aside>
-      <h2>Archives</h2>
+      <h2>By month</h2>
       <% if (archivesList) { %>
-        <%-archivesList%>
+        <%- archivesList %>
       <% } else { %>
         <p>None.</p>
       <% } %>
@@ -49,28 +45,11 @@ var categoriesList = list_categories({ show_count: false }),
 
   </div>
 <% } else { %>
+  <h1><%= moment(page.date).format('MMMM YYYY') %></h1>
 
-  <h1><%=page.month + '/' + page.year%></h1>
-
-  <% page.posts.each(function(article) { %>
-    <div class="archive-item">
-      <% if (article.link) { %>
-        <!-- external link -->
-        <a href="<%=url_for(article.link)%>" target="_blank">
-          <%=article.title || 'No Title'%>
-        </a>
-      <% } else { %>
-        <!-- internal link -->
-        <a href="<%=url_for(article.path)%>">
-          <%=article.title || 'No Title'%>
-        </a>
-      <% } %>
-      <time datetime="<%=date_xml(article.date)%>">
-        <%=date(article.date)%>
-      </time>
-    </div>
+  <% page.posts.each(function(post) { %>
+    <%- partial('partials/post', { post: post }) %>
   <% }); %>
-
 <% } %>
 
-<%-partial('partials/pagination')%>
+<%- partial('partials/pagination') %>

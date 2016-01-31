@@ -1,30 +1,38 @@
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
+.post + .post {
+  margin-top: $default-spacing
+}
+
 .post__header {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .post__title {
-	font-size: 1.8rem;
-	flex: 1 1 auto;
-	margin: 0 0;
+  font-size: 1.8rem;
+  flex: 1 1 auto;
+  margin: 0 0;
 }
 
 .post__meta {
-	flex: 0 0 auto;
-	margin: 1rem 0;
-	font-weight: 100;
+  flex: 0 0 auto;
+  margin: 1rem 0;
+  font-weight: 100;
 }
 
 .post__date {
-	color: $light-gray;
-	margin-bottom: 1rem;
+  color: $light-gray;
+  margin-bottom: 1rem;
 }
 
 .post__content,
 .post__summary {
-	margin: 0;
+  margin: 0;
+}
+
+.post__tags {
+  margin: 2rem 0;
 }

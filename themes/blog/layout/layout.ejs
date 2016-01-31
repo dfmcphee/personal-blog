@@ -3,7 +3,7 @@
   if (is_archive()) pageTitle = 'Archives';
   if (is_tag()) pageTitle = 'Tag: ' + page.tag;
   if (is_category()) pageTitle = 'Category: ' + page.category;
-  if (is_month()) pageTitle += ': ' + page.month + '/' + page.year;
+  if (is_month()) pageTitle += ': ' + moment(page.date).format('MMMM YYYY');
   if (is_year()) pageTitle += ': ' + page.year;
   pageTitle += ' - ' + config.title;
 %>
@@ -13,7 +13,13 @@
   <head>
     <meta charset="UTF-8">
     <title><%= pageTitle %></title>
+    <link rel="icon" href="/favicon.png">
+    <link rel="icon" sizes="76x76" href="/favicon-76x76.png">
+    <link rel="icon" sizes="152x152" href="/favicon-152x152.png">
+    <meta name="msapplication-TileImage" content="/favicon-144x144.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
     <% if (theme.stylesheets !== undefined && theme.stylesheets.length > 0) { %>
       <!-- stylesheets list from config.yml -->
       <% theme.stylesheets.forEach(function(url) { %>
@@ -23,19 +29,26 @@
   </head>
   <body>
     <div class="site">
-      <header id="masthead" class="site-header" role="banner">
-      	<div class="site-branding">
-    			<h1 class="site-title">
-            <a href="/" rel="home"><%- config.title %></a>
-          </h1>
+      <header id="masthead" class="header" role="banner">
+      	<div class="header__branding">
+          <% if (!is_home()) { %>
+      			<p class="site-title">
+              <a href="/" rel="home" class="site-link"><%- config.title %></a>
+            </p>
+          <% } else { %>
+            <h1 class="site-title">
+              <a href="/" rel="home" class="site-link"><%- config.title %></a>
+            </h1>
+          <% } %>
     			<p class="site-description"><%- config.subtitle %></p>
     		</div>
+        <div class="header__navigation">
+          <%- partial('partials/navigation') %>
+        </div>
       </header>
-
-      <%- body %>
-
-      <%- partial('partials/navigation') %>
-    </div>
+      <main class="site__main">
+        <%- body %>
+      </main>
 
     <% if (theme.scripts !== undefined && theme.scripts.length > 0) { %>
       <!-- scripts list from theme config.yml -->
