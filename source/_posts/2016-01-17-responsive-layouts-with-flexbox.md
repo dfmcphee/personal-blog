@@ -2,9 +2,9 @@
 title: Responsive layouts with flexbox
 date: 2016-01-17 11:19:56
 tags:
-  - css
-  - flexbox
-  - layout
+  - CSS
+  - Layout
+  - Flexbox
 ---
 
 Recently I have been playing around with some new ideas for responsive layouts. Typically one would probably set some breakpoints and use media queries throughout their CSS to change the layout at different screen sizes. This works, but you can also end up having many different breakpoints that can be difficult to manage. An alternative approach is to use flexbox with the flex-wrap property and let the component or content dictate how it fits into the layout.

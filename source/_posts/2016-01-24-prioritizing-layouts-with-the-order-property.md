@@ -2,10 +2,9 @@
 title: Prioritizing layouts with the order property
 date: 2016-01-24 10:57:09
 tags:
-  - css
-  - layout
-  - flexbox
-  - order
+  - CSS
+  - Layout
+  - Flexbox
 ---
 
 In my last post I wrote about building [responsive layouts with flexbox](/2016/01/responsive-layouts-with-flexbox/), but we can take it one step further and use the [order](https://developer.mozilla.org/en-US/docs/Web/CSS/order) property to help prioritize those layouts.
@@ -80,3 +79,7 @@ This is a useful technique and can be a big help when it makes sense to reorgani
 There are some drawbacks to only reorganizing content visually, and not the actual DOM elements themselves. Unexpected tab order may be confusing to users. Even though an input appears to come before another, it could actually be reversed in the tab order.
 
 Still, in some cases that makes sense anyway. So like Spider-Man once said, "with great power, comes great responsibility". Use it responsibly.
+
+## Update
+
+[Chris Sauvé](https://twitter.com/_lemonmade) pointed out to me that this can also be accomplished without any media queries using `flex-direction: row-reverse`. Check out his [codepen](http://codepen.io/lemonmade/pen/EPQMpo) to see it in action.
