@@ -19,7 +19,7 @@ var categoriesList = list_categories({ show_count: false }),
     <% if (categoriesList) { %>
       <aside>
         <h2>Categories</h2>
-        <%-categoriesList%>
+        <%- categoriesList %>
       </aside>
       <br>
     <% } %>
@@ -27,7 +27,7 @@ var categoriesList = list_categories({ show_count: false }),
     <aside>
       <h2>By tag</h2>
       <% if (tagsList) { %>
-        <%-tagsList%>
+        <%- tagsList %>
       <% } else { %>
         <p>None.</p>
       <% } %>
