@@ -7,7 +7,7 @@ tags:
   - Layout
 ---
 
-Earlier I wrote about [using flexbox to build responsive layouts](/2016/01/responsive-layouts-with-flexbox/). There is a behavior that can be surprising when using flexbox for layout like this. Content that is too long can force a flex item to not shrink appropriately. Let’s say for example you have a long URL displayed somewhere in your layout that you want to truncate. Applying `overflow: hidden` will stop the flex item from shrinking like you may expect it to. You can see an example in this  [codepen](http://codepen.io/dfmcphee/pen/reyPLa?editors=1100) when resizing your browser.
+Earlier I wrote about [using flexbox to build responsive layouts](/2016/01/responsive-layouts-with-flexbox/). There is a behavior that can be surprising when using flexbox for layout like this. The content of a flex item in the layout can force it to not shrink appropriately. Let’s say for example you have a long URL displayed somewhere in your layout that you want to truncate. Applying `overflow: hidden` will not result in the item shrinking like you may expect it to. You can see an example in this  [codepen](http://codepen.io/dfmcphee/pen/reyPLa?editors=1100) when resizing your browser.
 
 This may appear as a bug, but it is actually a part of the [spec for flexbox](https://www.w3.org/TR/2016/CR-css-flexbox-1-20160301/#flex-common).
 
